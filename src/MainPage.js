@@ -3,18 +3,24 @@ import Header from './Header';
 import MessageList from './MessageList';
 import MessageViewer from './MessageViewer';
 import { EmailConsumer } from './context/EmailContext';
-import TeamsList from './TeamsList';
-
+import { TeamsConsumer } from './context/TeamsContext';
+// console.log(EmailConsumer)
+// console.log(TeamsConsumer)
 const MainPage = () => (
-  <EmailConsumer>
-    {({ currentEmail }) => 
-      <main>
-        <Header/>
-          {currentEmail ? <MessageViewer/> : <MessageList/> }
-        <MessageList />
-      </main>
+  <TeamsConsumer>
+    {({ teams }) =>
+      <EmailConsumer>
+        {({ currentEmail }) => 
+          <main>
+            <Header/>
+              {currentEmail ? <MessageViewer/> : <MessageList/> }
+              {teams[0].id}
+            <MessageList />
+          </main>
+        }
+      </EmailConsumer>
     }
-  </EmailConsumer>
+  </TeamsConsumer>
 );
 
 export default MainPage;

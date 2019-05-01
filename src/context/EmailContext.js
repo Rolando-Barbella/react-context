@@ -31,7 +31,7 @@ class EmailProvider extends React.Component {
       <Provider
         value={{
           ...this.state,
-          onSelectEmail: this.handleSelectEmail
+		  onSelectEmail: this.handleSelectEmail,
         }}
       >
         {this.props.children}

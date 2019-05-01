@@ -5,6 +5,7 @@ import MainPage from './MainPage';
 import './index.css';
 import { UserProvider, UserConsumer } from './UserContext';
 import { EmailProvider } from './context/EmailContext';
+import { TeamsProvider } from './context/TeamsContext';
 
 function Root() {
   return (
@@ -17,7 +18,9 @@ function Root() {
 ReactDOM.render(
   <UserProvider>
     <EmailProvider>
-      <Root />
+      <TeamsProvider>
+        <Root />
+      </TeamsProvider>
     </EmailProvider>
   </UserProvider>,
   document.querySelector('#root')
