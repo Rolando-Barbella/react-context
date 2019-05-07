@@ -1,7 +1,7 @@
 export const FAKE_USER = {
-  firstName: 'Rolando',
-  lastName: 'Barbella',
-  username: 'rolando',
+  firstName: 'Dave',
+  lastName: 'Ceddia',
+  username: 'dave',
   avatar:
     'https://www.gravatar.com/avatar/5c3dd2d257ff0e14dbd2583485dbd44b?s=32'
 };
@@ -9,7 +9,7 @@ export const FAKE_USER = {
 export const FAKE_EMAILS = [
   {
     id: 0,
-    subject: 'Hey Rolando',
+    subject: 'Hey Dave',
     body: 'Yo, just wanted to say hey.'
   },
   {
@@ -27,7 +27,7 @@ export const FAKE_EMAILS = [
 
 // Generate a preview
 FAKE_EMAILS.forEach(
-  email => (email.preview = (email.body.substr(0, 46) + '...'))
+  email => (email.preview = email.body.substr(0, 46))
 );
 
 export function login(username, password) {
@@ -46,6 +46,24 @@ export function fetchEmails() {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve(FAKE_EMAILS);
+    }, 300);
+  });
+}
+
+export function fetchLatestEmails() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(
+        FAKE_EMAILS.map(e => ({
+          ...e,
+          id: Math.random()
+        })).slice(
+          0,
+          Math.floor(
+            Math.random() * (FAKE_EMAILS.length + 1)
+          )
+        )
+      );
     }, 300);
   });
 }

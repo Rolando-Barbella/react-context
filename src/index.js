@@ -6,6 +6,7 @@ import './index.css';
 import { UserProvider, UserConsumer } from './UserContext';
 import { EmailProvider } from './context/EmailContext';
 import { TeamsProvider } from './context/TeamsContext';
+import { NotificationProvider } from './context/NotificationContext';
 
 function Root() {
   return (
@@ -16,12 +17,14 @@ function Root() {
 }
 
 ReactDOM.render(
-  <UserProvider>
-    <EmailProvider>
-      <TeamsProvider>
-        <Root />
-      </TeamsProvider>
-    </EmailProvider>
-  </UserProvider>,
+  <NotificationProvider>
+    <UserProvider>
+      <EmailProvider>
+        <TeamsProvider>
+          <Root />
+        </TeamsProvider>
+      </EmailProvider>
+    </UserProvider>
+  </NotificationProvider>,
   document.querySelector('#root')
 );
