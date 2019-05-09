@@ -1,8 +1,9 @@
 import React from 'react';
 import { FAKE_USER } from './api';
 
+let UserContext;
 // Consumer and Provider comes with Context
-const { Provider, Consumer } = React.createContext();
+const { Provider, Consumer } = UserContext = React.createContext();
 
 class UserProvider extends React.Component {
 	state = {
@@ -33,4 +34,4 @@ class UserProvider extends React.Component {
 	}
 }
 
-export { UserProvider, Consumer as UserConsumer }
+export { UserProvider, Consumer as UserConsumer, UserContext }

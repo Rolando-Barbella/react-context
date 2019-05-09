@@ -1,10 +1,11 @@
 import React from 'react';
-import { UserConsumer } from './UserContext';
+import { UserContext } from './UserContext';
 
 class UserMenu extends React.Component {
-  state = {
-    menuVisible: false
-  };
+  // This is only available on classes and only works for sincle context
+  static contextType = UserContext;
+
+  state = { menuVisible: false };
 
   avatarRef = React.createRef();
 
@@ -31,25 +32,22 @@ class UserMenu extends React.Component {
   };
 
   render() {
+    const { user, onLogout } = this.context;
     return (
-      <UserConsumer>
-        {({ user, onLogout }) => (
-          <div className="UserMenu">
-            <img
-              className="UserAvatar"
-              alt="User avatar"
-              src={user.avatar}
-              onClick={this.toggleMenu}
-              ref={this.avatarRef}
-            />
-            {this.state.menuVisible && (
-              <ul>
-                <li onClick={onLogout}>Logout</li>
-              </ul>
-            )}
-          </div>
+      <div className="UserMenu">
+        <img
+          className="UserAvatar"
+          alt="User avatar"
+          src={user.avatar}
+          onClick={this.toggleMenu}
+          ref={this.avatarRef}
+        />
+        {this.state.menuVisible && (
+          <ul>
+            <li onClick={onLogout}>Logout</li>
+          </ul>
         )}
-      </UserConsumer>
+      </div>
     );
   }
 }

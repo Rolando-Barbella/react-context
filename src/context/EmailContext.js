@@ -21,7 +21,8 @@ class EmailProvider extends React.Component {
       .catch(error =>
         this.setState({ loading: false, error })
       );
-    this.refreshInterval = setInterval(this.refresh, 5000);
+    // Turn off notification
+    // this.refreshInterval = setInterval(this.refresh, 5000);
   }
 
   componentWillUnmount() {
@@ -31,7 +32,7 @@ class EmailProvider extends React.Component {
   refresh = () => {
     if (!this.state.loading) {
       fetchLatestEmails().then(emails => {
-        if (emails.length > 0) {
+        if (emails.length < 0) {
           this.setState(state => ({
             emails: state.emails.concat(emails)
           }));
