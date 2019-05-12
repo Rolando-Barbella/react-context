@@ -12,7 +12,7 @@ let teams = [
 class TeamsProvider extends React.Component {
 	render() {
 		return (
-			<Provider 
+			<Provider
 				value={{
 					teams: teams,
 				}}
