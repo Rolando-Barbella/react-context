@@ -6,12 +6,18 @@ let EmailContext;
 const { Provider, Consumer } = EmailContext = React.createContext();
 
 class EmailProvider extends React.Component {
-  state = {
-    emails: [],
-    currentEmail: null,
-    error: null,
-    loading: false
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      emails: [],
+      currentEmail: null,
+      error: null,
+      loading: false,
+      onSelectEmail: this.handleSelectEmail
+
+    };
+  }
 
   componentDidMount() {
     this.setState({ loading: true, error: null });
@@ -33,7 +39,7 @@ class EmailProvider extends React.Component {
   refresh = () => {
     if (!this.state.loading) {
       fetchLatestEmails().then(emails => {
-        if (emails.length < 0) {
+        if (emails.length > 0) {
           this.setState(state => ({
             emails: state.emails.concat(emails)
           }));
@@ -52,12 +58,7 @@ class EmailProvider extends React.Component {
 
   render() {
     return (
-      <Provider
-        value={{
-          ...this.state,
-          onSelectEmail: this.handleSelectEmail
-        }}
-      >
+      <Provider value={this.state}>
         {this.props.children}
       </Provider>
     );
