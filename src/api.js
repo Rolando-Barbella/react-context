@@ -1,7 +1,7 @@
 export const FAKE_USER = {
-  firstName: 'Dave',
-  lastName: 'Ceddia',
-  username: 'dave',
+  firstName: 'Rolando',
+  lastName: 'Barbella',
+  username: 'Rolando',
   avatar:
     'https://www.gravatar.com/avatar/5c3dd2d257ff0e14dbd2583485dbd44b?s=32'
 };
@@ -9,7 +9,7 @@ export const FAKE_USER = {
 export const FAKE_EMAILS = [
   {
     id: 0,
-    subject: 'Hey Dave',
+    subject: 'Hey Rolando',
     body: 'Yo, just wanted to say hey.'
   },
   {

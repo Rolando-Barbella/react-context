@@ -57,7 +57,7 @@ class UserProvider extends React.Component {
     currentUser: 'Rolando'
   };
 
-  // functions, declare here
+  // methods, declare here
 
   render() {
     return (
@@ -80,15 +80,15 @@ export { UserProvider, Consumer as UserConsumer };
 2. Inside a parent component, import the provider and consumer and wrap the componet with them.
 
 ```
-	<UserProvider>
-		<UserConsumer>
-			{({ user }) =>
-				<div>
-					<p>{user.firstName}</p>
-				</div>
-			}
-		</UserConsumer>
-	</UserProvider>
+<UserProvider>
+	<UserConsumer>
+		{({ user }) =>
+			<div>
+				<p>{user.firstName}</p>
+			</div>
+		}
+	</UserConsumer>
+</UserProvider>
 ```
 
 3. Inside a children component, import the consumer and wrap the componet with it.
@@ -139,6 +139,7 @@ import { UserConsumer } from './UserContext';
 
 class UserMenu extends React.Component {
 	static = contextType = UserContext;
+......
 
 ```
 
@@ -160,13 +161,13 @@ export { UserProvider, Consumer as UserConsumer, UserContext }
 ```
 import { UserContext } from './UserContext';
 
-// The consumer and funcion are gone
+// The consumer and functions are gone
 
  render() {
-    const { user, onLogout } = this.context;
-    return (
-      <div className="UserMenu">
-			......
+	const { user, onLogout } = this.context;
+	return (
+		<div className="UserMenu">
+......
 
 ```
 > Note: This approach only works for one context ( no nested ones ).
