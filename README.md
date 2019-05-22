@@ -1,6 +1,6 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Context](https://reactjs.org/docs/context.html)
+[React context api](https://reactjs.org/docs/context.html)
 
 # React Context App
 
@@ -168,11 +168,10 @@ import { UserContext } from './UserContext';
 
 // The consumer and function are gone
 class UserMenu extends React.Component {
-	render() {
-	const { user, onLogout } = this.context;
-
-	return (
-		<div className="UserMenu">
+  render() {
+  const { user, onLogout } = this.context;
+  return (
+    <div className="UserMenu">
 ......
 
 ```
@@ -191,7 +190,7 @@ const { user, age } = useContext(UserContext);
 
 return (
   <div className="MessageList">
-     <p>{user} {age}</p>
+    <p>{user} {age}</p>
 .....................
 ```
 
