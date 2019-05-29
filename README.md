@@ -169,9 +169,11 @@ import { UserContext } from './UserContext';
 // The consumer and function are gone
 class UserMenu extends React.Component {
   render() {
+    
   const { user, onLogout } = this.context;
-  return (
-    <div className="UserMenu">
+
+    return (
+      <div className="UserMenu">
 ......
 
 ```
