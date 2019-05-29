@@ -49,7 +49,7 @@ import UserContext from .../
 
 ## Clever use
 
-1. Inside the context file, declare a component.
+1. Inside the context file, declare a class component.
 
 ```JS
 import React from 'react';
