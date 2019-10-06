@@ -1,12 +1,12 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[React context api](https://reactjs.org/docs/context.html)
-
 # React Context App
+
+The propuse was to play and experiment different situations with [React context api](https://reactjs.org/docs/context.html) and see how they compare to state management like Redux.
 
 ## Basic Use
 
-1. Create a file with the contex define, the context object contains two properties: Consumer and Provider.
+1. Create a file with contex define, the context object contains two properties: Consumer and Provider.
 
 ```JS
 const Context = React.createContext();
